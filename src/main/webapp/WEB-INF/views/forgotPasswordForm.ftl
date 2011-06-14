@@ -1,5 +1,6 @@
 <#import "spring.ftl" as spring/>
 <html>
+	<title>Forgot Password</title>
 <body>
 <h1>Forgot Password</h1>
 <form name="forgotPassword" method="post">
