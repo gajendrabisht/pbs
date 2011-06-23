@@ -1,0 +1,27 @@
+#**
+ * springFormSingleSelect
+ *
+ * Show a selectbox (dropdown) input element allowing a single value to be chosen
+ * from a list of options.
+ *
+ * @param path the name of the field to bind to
+ * @param options a list of all the available options
+ * @param attributes any additional attributes for the element (such as class
+ * @param noOptionText a text message for no option
+ *        or CSS styles or size
+*#
+#macro( springFormSingleSelectForList $path $options $noOptionText $attributes )
+	#springBind($path)
+	<select name="${status.expression}" ${attributes}>
+		#if($noOptionText)
+            <option value="">$noOptionText</option>
+		#end
+		#foreach($option in $options)
+			<option value="${option}"
+			#if($status.value && $status.value == $option)
+				selected="true"
+			#end>
+			${option}</option>
+		#end
+	</select>
+#end

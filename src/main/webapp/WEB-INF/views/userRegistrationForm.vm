@@ -1,0 +1,36 @@
+#parse('macros.vm')
+<html>
+    <head >
+		<title>User Registration</title>
+    </head>
+	<body>
+		<h1>User Registration</h1>
+		<form name="userRegistration" method="post">
+			<ul>
+				<li>
+					<label>Name</label>
+        			#springFormInput("user.name")
+					#springShowErrors("")
+                </li>
+				<li>
+					<label>Email :</label>
+					#springFormInput("user.email")
+					#springShowErrors("")
+                </li>
+				<li>
+        			<label>Password</label>
+					#springFormPasswordInput("user.password")
+					#springShowErrors("")
+                </li>
+				<li>
+        			<label>Country :</label>
+        			#springFormSingleSelectForList("user.country" $countryOptions "Choose a Country" "")
+					#springShowErrors("")
+                </li>
+				<li>
+					<input type="submit" value="Submit"/>
+                </li>
+            </ul>
+		</form>
+    </body>
+</html>

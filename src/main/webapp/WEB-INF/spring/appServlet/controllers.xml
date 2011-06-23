@@ -10,12 +10,11 @@
 	<!-- Scans within the base package of the application for @Components to configure as beans -->
 	<context:component-scan base-package="com.pbs.*" />
 	
-	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basenames">
-			<list>
-				<value>validation</value>
-			</list>
-		</property>
-	</bean> 
-	 
+	<!-- Load up configuration properties -->
+	<context:property-placeholder location="classpath*:META-INF/spring/*.properties" />
+	
+	<bean class="org.springframework.context.support.ResourceBundleMessageSource" id="messageSource">  
+		<property name="basename" value="/META-INF/spring/messages" />  
+	</bean>
+	
 </beans>
