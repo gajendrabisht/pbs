@@ -15,7 +15,7 @@
 		<org.slf4j-version>1.5.10</org.slf4j-version>
 	</properties>
 	<dependencies>
-	
+
 		<!-- H2 database -->
 		<dependency>
 		    <groupId>com.h2database</groupId>
@@ -97,7 +97,7 @@
 		<dependency>
 			<groupId>org.apache.velocity</groupId>
 			<artifactId>velocity</artifactId>
-			<version>1.6.4</version>
+			<version>1.7</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
