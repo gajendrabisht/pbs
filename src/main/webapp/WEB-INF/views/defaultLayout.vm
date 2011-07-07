@@ -1,0 +1,6 @@
+<html>
+	<body>
+		#parse("header.vm")
+		$screen_content
+    </body>
+</html>
