@@ -12,7 +12,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
-@Entity
+@Entity(name="User")
 public class User {
 	
 	@Id @Column @GeneratedValue(strategy=GenerationType.AUTO)

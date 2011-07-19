@@ -1,0 +1,14 @@
+#parse('macros.vm')
+<html>
+    <head >
+		<title>Imdb Home</title>
+    </head>
+	<body>
+		<h1>Imdb Home</h1>
+		<ul>
+        	#foreach($movie in $allMovies)
+                <li>${movie.name}</li>
+        	#end
+        </ul>
+    </body>
+</html>

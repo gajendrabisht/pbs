@@ -23,7 +23,7 @@ public class GenericDao<E> {
 	public E get(Long id) {
 		return (E) sessionFactory.getCurrentSession().get(type, id);
 	}
-
+	
 	public void save(E element) {
 		sessionFactory.getCurrentSession().save(element);
 	}
