@@ -39,7 +39,7 @@ public class ImdbHomeControllerTest {
 		String view = controller.showImdbHome(modelMap);
 		
 		// then
-		assertThat(view, is("imdbHomePage"));
+		assertThat(view, is("imdb/home"));
 		assertThat((List<Movie>)modelMap.get("allMovies"), sameInstance(allMovies));
 	}
 	

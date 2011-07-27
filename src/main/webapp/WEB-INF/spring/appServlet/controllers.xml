@@ -17,4 +17,10 @@
 		<property name="basename" value="/META-INF/spring/messages" />  
 	</bean>
 	
+	<mvc:interceptors>
+		<bean class="org.springframework.orm.hibernate3.support.OpenSessionInViewInterceptor">
+			<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+	</mvc:interceptors>
+	
 </beans>

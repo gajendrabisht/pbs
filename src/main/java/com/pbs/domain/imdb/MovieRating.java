@@ -12,7 +12,7 @@ import com.pbs.domain.User;
 public class MovieRating {
 	
 	@EmbeddedId
-	private MovieRatingId movieRatingId;
+	private MovieRatingId movieRatingId = new MovieRatingId();
 	
 	@ManyToOne
 	@JoinColumn(name="movie_id", insertable=false, updatable= false)

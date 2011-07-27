@@ -22,7 +22,7 @@ public class ImdbHomeController {
 	@RequestMapping(method=RequestMethod.GET)
 	public String showImdbHome(ModelMap modelMap) {
 		modelMap.put("allMovies", movieService.getAllMovies());
-		return "imdbHomePage";
+		return "imdb/home";
 	}
 	
 }

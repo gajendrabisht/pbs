@@ -5,10 +5,14 @@
     </head>
 	<body>
 		<h1>Imdb Home</h1>
-		<ul>
+		<table>
         	#foreach($movie in $allMovies)
-                <li>${movie.name}</li>
+				<tr>
+					<td>${movie.name}</td>
+					<td>${movie.year}</td>
+					<td>${movie.averageRating}</td>
+                </tr>
         	#end
-        </ul>
+        </table>
     </body>
 </html>
