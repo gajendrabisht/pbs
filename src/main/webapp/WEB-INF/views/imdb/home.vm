@@ -5,6 +5,9 @@
     </head>
 	<body>
 		<h1>Imdb Home</h1>
+		<div>
+			<input type="text" id="autocompletesuggestedmovies"/>
+        </div>
 		<table>
         	#foreach($movie in $allMovies)
 				<tr>

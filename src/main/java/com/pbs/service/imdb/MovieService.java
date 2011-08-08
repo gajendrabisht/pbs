@@ -22,4 +22,8 @@ public class MovieService {
 		return movieDao.getAllMovies();
 	}
 
+	public List<Movie> getAutoCompleteSuggestedMovies(String movie) {
+		return movieDao.getAutoCompleteSuggestedMovies(movie);
+	}
+
 }

@@ -1,1 +1,4 @@
-This is a header - add some CSS and JS please
+<link rel="stylesheet" type="text/css" href="$link.setRelative('/resources/css/main.css')"/>
+<script src="$link.setRelative('/resources/js/jquery-1.6.2.min.js')"></script>
+<script src="$link.setRelative('/resources/js/jquery-ui-1.8.14.custom.min.js')"></script>
+<script src="$link.setRelative('/resources/js/main.js')"></script>

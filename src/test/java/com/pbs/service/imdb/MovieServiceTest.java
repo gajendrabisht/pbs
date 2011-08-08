@@ -38,5 +38,17 @@ public class MovieServiceTest {
 		// then
 		assertThat(allMoviesReturned, sameInstance(allMovies));
 	}
-
+	
+	@Test
+	public void shouldGetAvailableMovies() {
+		String movieName = "someMovieName";
+		
+		List<Movie> availableMovies = new ArrayList<Movie>();
+		given(movieDao.getAutoCompleteSuggestedMovies(movieName)).willReturn(availableMovies);
+		
+		List<Movie> availableMoviesReturned = service.getAutoCompleteSuggestedMovies(movieName);
+		
+		assertThat(availableMoviesReturned, sameInstance(availableMovies));
+	}
+	
 }

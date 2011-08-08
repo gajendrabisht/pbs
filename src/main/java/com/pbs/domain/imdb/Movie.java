@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 @Entity
 @Table(name="movie")
 public class Movie {
@@ -21,7 +23,7 @@ public class Movie {
 	private String name;
 	@Column
 	private Integer year;
-	@OneToMany(mappedBy="movie")
+	@OneToMany(mappedBy="movie") @JsonIgnore
 	private List<MovieRating> ratings;
 
 	public Movie() { /* For Hibernate */ }

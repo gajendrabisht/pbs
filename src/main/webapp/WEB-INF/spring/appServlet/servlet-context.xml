@@ -27,6 +27,7 @@
 		<property name="suffix" value=".vm"/>
 		<property name="layoutUrl" value="defaultLayout.vm"/>
 		<property name="exposeSpringMacroHelpers" value="true"/>
+		<property name="toolboxConfigLocation" value="/WEB-INF/toolbox.xml"/>
 	</bean>
 	
 	<!-- Imports user-defined @Controller beans that process client requests -->

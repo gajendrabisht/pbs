@@ -76,4 +76,25 @@ public class MovieDaoIntegrationTest {
 		assertThat(allMovies.size(), is(2));
 	}
 	
+	@Test
+	public void shouldReturnAvailableMovies() {
+		// given
+		Movie movie1 = new Movie(1L, "Titanic", 2000, null);
+		Movie movie2 = new Movie(2L, "Trainspotting", 2001, null);
+		Movie movie3 = new Movie(2L, "How to Train your dragon", 2002, null);
+		Movie movie4 = new Movie(2L, "Training Day", 2003, null);
+		movieDao.save(movie1);
+		movieDao.save(movie2);
+		movieDao.save(movie3);
+		movieDao.save(movie4);
+		
+		// when
+		List<Movie> availableMovies = movieDao.getAutoCompleteSuggestedMovies("train");
+		
+		// then
+		assertThat(availableMovies.size(), is(2));
+		assertThat(availableMovies.get(0).getName(), is("Training Day"));
+		assertThat(availableMovies.get(1).getName(), is("Trainspotting"));
+	}
+	
 }
