@@ -23,13 +23,12 @@ public class Movie {
 	private String name;
 	@Column
 	private Integer year;
-	@OneToMany(mappedBy="movie") @JsonIgnore
+	@OneToMany(mappedBy="movie")
 	private List<MovieRating> ratings;
 
 	public Movie() { /* For Hibernate */ }
 
 	public Movie(Long id, String name, Integer year, List<MovieRating> ratings) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.year = year;
@@ -60,6 +59,7 @@ public class Movie {
 		this.year = year;
 	}
 
+	@JsonIgnore
 	public List<MovieRating> getRatings() {
 		return ratings;
 	}
@@ -68,6 +68,7 @@ public class Movie {
 		this.ratings = ratings;
 	}
 	
+	@JsonIgnore
 	public String getAverageRating() {
 		Double averageMovieRating = 0D;
 		for(MovieRating rating: ratings) {

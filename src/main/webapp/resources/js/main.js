@@ -1,13 +1,13 @@
 $(document).ready(function() {
 	
-	$('#autocompletesuggestedmovies').autocomplete({
+	$('#autoCompleteMovies').autocomplete({
 		source: function(request, response) {
 			$.getJSON(
-				"/pbs/imdb/testingJson",
+				"/pbs/imdb/autocomplete/movies",
 				{movieName: request.term},
 				function(movies) {
 					response($.each(movies, function(index, movie) {
-						//alert(movie.name);
+						alert(movie.name);
 						return {
 							label: movie.name,
 							value: movie.name
@@ -15,24 +15,25 @@ $(document).ready(function() {
 					}));
 				}
 			);
-			//response("hello");
-			
-//			$.ajax({
-//				url: "/pbs/imdb/testingJson",
-//				dataType: "jsonp",
-//				data: {
-//					movieName: request.term
-//				},
-//				success: function( data ) {
-//					response( $.each( data, function( index, item ) {
-//						alert(item.name);
-//						return {
-//							label: item.name,
-//							value: item.name
-//						};
-//					}));
-//				}
-//			});
 		}
 	});
+	
+	$('#autoCompleteUsers').autocomplete({
+		source: function(request, response) {
+			$.getJSON(
+				"/pbs/imdb/autocomplete/users",
+				{userName: request.term},
+				function(users) {
+					response($.each(users, function(index, user) {
+						alert(user.name + ", " + user.email + ", " + user.password + ", " + user.country);
+						return {
+							label: user.name,
+							value: user.name
+						};
+					}));
+				}
+			);
+		}
+	});
+	
 });

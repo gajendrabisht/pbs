@@ -1,6 +1,5 @@
 package com.pbs.controller.imdb;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,36 +8,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.pbs.domain.imdb.DummyMovie;
+import com.pbs.domain.User;
 import com.pbs.domain.imdb.Movie;
 import com.pbs.service.imdb.MovieService;
+import com.pbs.service.imdb.UserService;
 
 @Controller
-public class MovieAutoCompleteSuggestionsController {
+public class AutoCompleteSuggestionsController {
 
 	private final MovieService movieService;
+	private final UserService userService;
 
 	@Autowired
-	public MovieAutoCompleteSuggestionsController(MovieService movieService) {
+	public AutoCompleteSuggestionsController(MovieService movieService, UserService userService) {
 		this.movieService = movieService;
+		this.userService = userService;
 	}
 	
-	@RequestMapping("/imdb/autocompletesuggestedmovies")
+	@RequestMapping("/imdb/autocomplete/movies")
 	public @ResponseBody List<Movie> getAutoCompleteSuggestedMovies(@RequestParam String movieName) {
 		return movieService.getAutoCompleteSuggestedMovies(movieName);
 	}
 	
-	@RequestMapping("/imdb/testingJson")
-	public @ResponseBody List<DummyMovie> testingJson(@RequestParam String movieName) {
-		List<DummyMovie> movies = new ArrayList<DummyMovie>();
-		movies.add(new DummyMovie("id1", "movie1"));
-		movies.add(new DummyMovie("id2", "movie2"));
-		return movies;
-	}
-	
-	@RequestMapping("/imdb/testingJson2")
-	public @ResponseBody String[] testingJson2(@RequestParam String movieName) {
-		return new String[] {"hello", "there"};
+	@RequestMapping("/imdb/autocomplete/users")
+	public @ResponseBody List<User> getAutoCompleteSuggestedUsers(@RequestParam String userName) {
+		return userService.getAutoCompleteSuggestedUsers(userName);
 	}
 	
 }

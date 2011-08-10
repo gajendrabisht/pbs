@@ -15,16 +15,18 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import com.pbs.domain.imdb.Movie;
 import com.pbs.service.imdb.MovieService;
+import com.pbs.service.imdb.UserService;
 
 @RunWith(MockitoJUnitRunner.class)
-public class MovieAutoCompleteSuggestionsControllerTest {
+public class AutoCompleteSuggestionsControllerTest {
 	
-	private MovieAutoCompleteSuggestionsController controller;
+	private AutoCompleteSuggestionsController controller;
 	@Mock private MovieService movieService;
+	@Mock private UserService userService;
 	
 	@Before
 	public void setUp() {
-		controller = new MovieAutoCompleteSuggestionsController(movieService);
+		controller = new AutoCompleteSuggestionsController(movieService, userService);
 	}
 	
 	@Test
