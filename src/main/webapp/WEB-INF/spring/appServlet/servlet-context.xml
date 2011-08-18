@@ -2,9 +2,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:oxm="http://www.springframework.org/schema/oxm"
 	xsi:schemaLocation="
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm-3.0.xsd">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
@@ -36,4 +38,30 @@
 	<!-- Imports hibernate daos -->
 	<import resource="daos.xml" />
 	
+	<!-- JAXB Mapping 
+	<oxm:jaxb2-marshaller id="jaxbMarshaller">
+		<oxm:class-to-be-bound name="com.pbs.domain.User"/>
+	</oxm:jaxb2-marshaller>
+	
+	<bean
+		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="defaultContentType" value="text/html" />
+		<property name="ignoreAcceptHeader" value="true" />
+		<property name="favorPathExtension" value="true" />
+		<property name="mediaTypes">
+			<map>
+				<entry key="json" value="application/json" />
+				<entry key="xml" value="application/xml" />
+			</map>
+		</property>
+		<property name="defaultViews">
+			<list>
+				<bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
+				<bean class="org.springframework.web.servlet.view.xml.MarshallingView">
+					<property name="marshaller" ref="jaxbMarshaller" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	-->
 </beans>

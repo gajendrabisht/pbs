@@ -13,6 +13,10 @@
 			<label>Start typing user name: </label>
 			<input type="text" id="autoCompleteUsers"/>
         </div>
+		<div>
+			<label>(XML Response)Start typing user name: </label>
+			<input type="text" id="autoCompleteUsersXmlFormat"/>
+        </div>
 		<table>
         	#foreach($movie in $allMovies)
 				<tr>

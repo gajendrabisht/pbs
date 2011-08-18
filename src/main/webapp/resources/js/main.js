@@ -36,4 +36,18 @@ $(document).ready(function() {
 		}
 	});
 	
+	$('#autoCompleteUsersXmlFormat').autocomplete({
+		source: function(request, response) {
+			$.ajax({
+				url: "/pbs/imdb/autocomplete/users",
+				data: {userName: request.term},
+				dataType: "xml",
+				contentType: "application/xml",
+				complete: function(users) {
+					alert(typeof users + ", " + users.length);
+				}
+			});
+		}
+	});
+	
 });
