@@ -11,8 +11,17 @@
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
-	<mvc:annotation-driven />
-
+	<mvc:annotation-driven conversion-service="conversionService"/>
+	
+	<!-- Registering custom convertors -->
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<property name="converters">
+			<list>
+				<bean class="com.pbs.converter.imdb.MovieIdConverter"/>
+			</list>
+		</property>
+	</bean>
+		
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 
@@ -38,30 +47,4 @@
 	<!-- Imports hibernate daos -->
 	<import resource="daos.xml" />
 	
-	<!-- JAXB Mapping 
-	<oxm:jaxb2-marshaller id="jaxbMarshaller">
-		<oxm:class-to-be-bound name="com.pbs.domain.User"/>
-	</oxm:jaxb2-marshaller>
-	
-	<bean
-		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-		<property name="defaultContentType" value="text/html" />
-		<property name="ignoreAcceptHeader" value="true" />
-		<property name="favorPathExtension" value="true" />
-		<property name="mediaTypes">
-			<map>
-				<entry key="json" value="application/json" />
-				<entry key="xml" value="application/xml" />
-			</map>
-		</property>
-		<property name="defaultViews">
-			<list>
-				<bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
-				<bean class="org.springframework.web.servlet.view.xml.MarshallingView">
-					<property name="marshaller" ref="jaxbMarshaller" />
-				</bean>
-			</list>
-		</property>
-	</bean>
-	-->
 </beans>

@@ -1,0 +1,9 @@
+<html>
+    <head >
+		<title>Movie Details</title>
+    </head>
+	<body>
+		<h1>Movie Details</h1>
+        <p>Movie: ${movie.name}</p>
+    </body>
+</html>
