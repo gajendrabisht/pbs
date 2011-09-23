@@ -23,6 +23,7 @@ public class MovieService {
 		this.movieDao = movieDao;
 	}
 
+	@Cacheable(value="movies")
 	public List<Movie> getAllMovies() {
 		return movieDao.getAllMovies();
 	}
@@ -31,5 +32,5 @@ public class MovieService {
 	public List<Movie> getAutoCompleteSuggestedMovies(String movie) {
 		return movieDao.getAutoCompleteSuggestedMovies(movie);
 	}
-
+	
 }
